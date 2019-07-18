@@ -25,9 +25,18 @@ def success():
  
     qry = db_session.query(Items)
     results = qry.all()
+    #print(type(results))
+    
+    resultLst = []
 
-    return str(results)
+    # Loop over the obtained Items list object 
+
+    for i in results:
+        resultLst.append(" Name:  "+i.name +"     Quantity:   "+ str(i.quantity) +"   Decription:     " + i.description) 
+    
+
+    return str(resultLst)
   
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+    app.run(host='0.0.0.0', port=5000)
